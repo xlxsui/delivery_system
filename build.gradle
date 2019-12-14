@@ -1,0 +1,52 @@
+plugins {
+	id 'org.springframework.boot' version '2.2.2.RELEASE'
+	id 'io.spring.dependency-management' version '1.0.8.RELEASE'
+	id 'java'
+}
+
+group = 'com.stu'
+version = '1.0.0'
+sourceCompatibility = '1.8'
+
+repositories {
+	//	mavenCentral()
+    maven { url "https://repo.spring.io/snapshot" }
+    maven { url "https://repo.spring.io/milestone" }
+    maven { url "http://maven.aliyun.com/nexus/content/groups/public/" }
+}
+
+dependencies {
+	implementation 'org.springframework.boot:spring-boot-starter-web'
+
+    // 添加Thymeleaf 依赖
+    implementation 'org.springframework.boot:spring-boot-starter-thymeleaf'
+
+	// 添加 Spring Data JPA 的依赖
+    implementation 'org.springframework.boot:spring-boot-starter-data-jpa'
+
+    implementation 'org.springframework.boot:spring-boot-starter-websocket'
+
+    implementation 'org.mybatis.spring.boot:mybatis-spring-boot-starter:2.1.1'
+
+    implementation 'org.apache.httpcomponents:httpclient:4.5'
+
+    // 添加 MySQL 连接驱动的依赖
+    implementation 'mysql:mysql-connector-java:8.0.15'
+
+    // 添加 H2 的依赖
+    runtime 'com.h2database:h2:1.4.196'
+
+    // 添加  Spring Security 依赖
+    implementation 'org.springframework.boot:spring-boot-starter-security'
+
+    // 添加  Thymeleaf Spring Security 依赖
+    implementation 'org.thymeleaf.extras:thymeleaf-extras-springsecurity4:3.0.2.RELEASE'
+
+	testImplementation('org.springframework.boot:spring-boot-starter-test') {
+		exclude group: 'org.junit.vintage', module: 'junit-vintage-engine'
+	}
+}
+
+test {
+	useJUnitPlatform()
+}
