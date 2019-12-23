@@ -42,6 +42,9 @@ dependencies {
     // 添加  Thymeleaf Spring Security 依赖
     implementation 'org.thymeleaf.extras:thymeleaf-extras-springsecurity4:3.0.2.RELEASE'
 
+    // 使用OkHttp库请求
+    implementation("com.squareup.okhttp3:okhttp:4.2.2")
+
 	testImplementation('org.springframework.boot:spring-boot-starter-test') {
 		exclude group: 'org.junit.vintage', module: 'junit-vintage-engine'
 	}

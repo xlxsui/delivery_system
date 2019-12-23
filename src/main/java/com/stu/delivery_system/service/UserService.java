@@ -44,7 +44,17 @@ public class UserService implements UserDetailsService {
     }
 
     public User saveUser(User user) {
-        userRepository.save(user);
+        String openid = user.getUuid();
+        User oldUser = userRepository.findByUuid(openid);
+        if (oldUser != null) {  // 已经存在，更新
+            oldUser.setAvatar(user.getAvatar());
+            oldUser.setGender(user.getGender());
+            oldUser.setUsername(user.getUsername());
+            oldUser.setProvince(user.getProvince());
+            userRepository.save(oldUser);
+        } else {  // 新用户，直接保存
+            userRepository.save(user);
+        }
         return user;
     }
 

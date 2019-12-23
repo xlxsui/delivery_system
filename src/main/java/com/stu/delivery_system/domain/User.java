@@ -142,4 +142,18 @@ public class User implements UserDetails {
     public void setGender(String gender) {
         this.gender = gender;
     }
+
+
+    @Override
+    public String toString() {
+        return "User{" +
+                "id=" + id +
+                ", uuid='" + uuid + '\'' +
+                ", username='" + username + '\'' +
+                ", money=" + money +
+                ", province='" + province + '\'' +
+                ", avatar='" + avatar + '\'' +
+                ", gender='" + gender + '\'' +
+                '}';
+    }
 }

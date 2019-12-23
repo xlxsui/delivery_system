@@ -15,4 +15,18 @@ public interface MissionService {
     Optional<Mission> getMissionById(Long id);
 
     Page<Mission> listMissionByContent(User user, String content, Pageable pageable);
+
+    Page<Mission> listMissionByUserAndStatus(User user, String status, Pageable pageable);
+
+    Page<Mission> listMissionByReceiverAndStatus(User receiver, String status, Pageable pageable);
+
+    Page<Mission> listMissionByUserOrReceiver(User user, User receiver, Pageable pageable);
+
+    Page<Mission> listMissionByUser(User user, Pageable pageable);
+
+    Page<Mission> listMissionByType(String type, Pageable pageable);
+
+    Page<Mission> listMissionAll(Pageable pageable);
+
+
 }

@@ -23,4 +23,41 @@ public interface MissionRepository extends JpaRepository<Mission, Long> {
      */
     Page<Mission> findByContentLikeOrUserOrOriginLikeOrDestinationLikeOrderByReleaseTimeDesc(String content, User user, String origin, String destination, Pageable pageable);
 
+    /**
+     * 发出订单查询
+     *
+     * @param status
+     * @param user
+     * @param pageable
+     * @return
+     */
+    Page<Mission> findByStatusLikeAndUserOrderByReleaseTimeDesc(String status, User user, Pageable pageable);
+
+    /**
+     * 接收订单查询
+     *
+     * @param status
+     * @param receiver
+     * @param pageable
+     * @return
+     */
+    Page<Mission> findByStatusLikeAndReceiverOrderByReleaseTimeDesc(String status, User receiver, Pageable pageable);
+
+    /**
+     * 获取全部接收和发出的订单
+     *
+     * @param user
+     * @param receiver
+     * @param pageable
+     * @return
+     */
+    Page<Mission> findByUserOrReceiverOrderByReleaseTimeDesc(User user, User receiver, Pageable pageable);
+
+    Page<Mission> findByUserOrderByReleaseTimeDesc(User user, Pageable pageable);
+
+    Page<Mission> findByStatusLikeAndTypeOrderByReleaseTimeDesc(String status, String type, Pageable pageable);
+
+    Page<Mission> findByStatusLikeOrderByReleaseTimeDesc(String status, Pageable pageable);
+
+
 }
